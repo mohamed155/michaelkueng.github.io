@@ -60,6 +60,10 @@
   padding: 100px 0;
 }
 
+.section-wrap-md-schluss {
+  padding: 0px 0;
+}
+
 .main-container {
   margin: auto;
 }
@@ -218,6 +222,7 @@ body img {
 video {
   height: 100%;
   width: 100%;
+  vertical-align: bottom;
 }
 
 iframe {
@@ -1683,6 +1688,11 @@ ol.numbers {
   max-width: 100%;
 }
 
+.container-videotitel {
+  width: 98%;
+  height: 40%;
+}
+
 .header-wrap {
   width: 320px;
   height: 100%;
@@ -1893,7 +1903,7 @@ ol.numbers {
 }
 
 .hero-holder {
-  bottom: 0;
+  top: 40;
   left: 80px;
   position: absolute;
   padding: 0 0 80px 95px;
@@ -1954,7 +1964,7 @@ ol.numbers {
   width: 100%;
   height: 40%;
   bottom: 0;
-  position: absolute;
+  position: relative;
   z-index: 3;
   background: rgba(0, 0, 0, 0.34);
   background: -webkit-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.34) 100%);
@@ -2540,6 +2550,7 @@ address {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
+  margin-bottom: 120px;
 }
 
 .page-title .container {
@@ -2552,7 +2563,7 @@ address {
   display: block;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.24);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .page-title.no-overlay:before {
@@ -2583,19 +2594,20 @@ address {
   color: #fff;
   font-size: 24px;
   font-weight: 400;
+  line-height: 50px;
 }
 
 .title-text {
   display: table-cell;
   height: 100%;
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 
 .title-text h1 {
   margin: 0 auto 16px;
   color: #fff;
   font-size: 48px;
-  line-height: 67px;
+  line-height: 48px;
   max-width: 570px;
 }
 
@@ -5470,6 +5482,66 @@ input.btn-white {
   .pb-xsm-140 {
     padding-bottom: 140px;
   }
+}
+#background-video {
+  width: 100vw;
+  height: 70vh;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.lizenzen {
+  margin-top: 120px;
+}
+.vorhernachher {
+  margin-bottom: 0px;
+}
+.storytelling {
+  font-family: storytelling;
+  font-size: 60px !important;
+  letter-spacing: 6px;
+  line-height: 120% !important;
+  background-color: transparent !important;
+}
+.nummerierung {
+background: #444745;
+color: #ffeb00;
+font-weight: 700;
+margin-right: 0.75em;
+width: 35px;
+border-radius: 5em;
+padding: 0 0 0em 0.37em;
+height: 1.2em;
+line-height: 0.85em;
+-webkit-box-flex: 0;
+-ms-flex: 0 0 1.2em;
+flex: 0 0 1.2em;
+font-size: 30px;
+}
+.nummerierungzwei {
+  background: #444745;
+  color: #ffeb00;
+  font-weight: 700;
+  margin-right: 0.75em;
+  width: 35px;
+  border-radius: 5em;
+  padding: 0 0 0em 0.31em;
+  height: 1.2em;
+  line-height: 0.85em;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 1.2em;
+  flex: 0 0 1.2em;
+  font-size: 30px;
+  }
+.vorhernachherfrueher {
+  letter-spacing: 0px;
+}
+.schluss {
+  padding-top: 0px;
 }
 
 /*# sourceMappingURL=style.css.map */
