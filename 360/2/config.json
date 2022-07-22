@@ -1,0 +1,188 @@
+{
+    "story":
+    {
+        "uid": "hotspots-DOM-story",
+        "name": "Hotspots DOM Story",
+        "slug": "hotspots-dom-story",
+        "description": "This is sample of DOM hotspots",
+        "default": "scene-0",
+
+        "scenes":
+        [
+            {
+                "uid": "scene-0",
+                "name": "Start",
+                "slug": "first-scene",
+                "description": "Explore Aarau",
+                "background": "#4c4e4d",
+
+                "media":
+                {
+                    "uid": "media-1",
+                    "type": "image",
+
+                    "source":
+                    {
+                        "format": "equi",
+                        "url": "rainbowcity.jpg"
+                    }
+                },
+                "camera":
+                {
+                    "parallax": 0,
+                    "yaw": { "default" : 170 },
+                    "pitch": { "default" : -17, "min": -120, "max": 30 },
+                    "roll": { "default" : 50, "min": 0, "max": 0 },
+                    "fov": { "default" : 50, "min": 20, "max": 80 }
+                },
+                "sound":
+                        {
+                            "uid" : "sound-0",
+                            "source":
+                        {
+                            "url" : "sounds/wind_with_music.mp3"
+                        },
+                            "options": {
+                                "volume" : { "min": 0, "max": 0.1 },
+                                "loop" : true,
+                                "autoPlay": true,
+                                "startTime" : 0
+                            }
+                        },
+                "hotspots":
+                [
+                    {
+                        "uid": "hotspot-dom-kantonsspital",
+                        "interactive": true,
+                        "type": "dom",
+
+                        "dom":
+                        {
+                            "id": "hotspot-kantonsspital",
+                            "width": "5em",
+                            "height": "5em",
+                            "color": "transparent",
+                            "index": 6,
+                            "class": [ "media-style__pin", "content-style__above", "hover-trig" ]
+                        },
+
+                        "transform":
+                        {
+                            "position": {
+                                "theta": 144,
+                                "phi": -12
+                            }
+                        }
+                    }
+                ]        
+            },
+            {
+                "uid": "scene-1",
+                "name": "Start",
+                "slug": "first-scene",
+                "description": "Explore Aarau",
+                "background": "#4c4e4d",
+
+                "media":
+                {
+                    "uid": "media-1",
+                    "type": "image",
+
+                    "source":
+                    {
+                        "format": "equi",
+                        "url": "https://www.visitzealandia.com/portals/0/Images/Birds/Hihi-Janice-McKenna.jpg"
+                    }
+                },
+                "camera":
+                {
+                    "parallax": 0,
+                    "yaw": { "default" : 170 },
+                    "pitch": { "default" : -17, "min": -120, "max": 30 },
+                    "roll": { "default" : 50, "min": 0, "max": 0 },
+                    "fov": { "default" : 50, "min": 20, "max": 80 }
+                },
+                "sound":
+                        {
+                            "uid" : "sound-0",
+                            "source":
+                        {
+                            "url" : "sounds/wind_with_music.mp3"
+                        },
+                            "options": {
+                                "volume" : { "min": 0, "max": 0.1 },
+                                "loop" : true,
+                                "autoPlay": true,
+                                "startTime" : 0
+                            }
+                        },
+                "hotspots":
+                [
+                    {
+                        "uid": "hotspot-dom-kantonsspital",
+                        "interactive": true,
+                        "type": "dom",
+
+                        "dom":
+                        {
+                            "id": "hotspot-kantonsspital",
+                            "width": "5em",
+                            "height": "5em",
+                            "color": "transparent",
+                            "index": 6,
+                            "class": [ "media-style__pin", "content-style__above", "hover-trig" ]
+                        },
+
+                        "transform":
+                        {
+                            "position": {
+                                "theta": 144,
+                                "phi": -12
+                            }
+                        }
+                    }
+                ]         
+            }
+        ]
+    },
+    "actions":
+    [
+        {
+            "uid": "action-loadscene-1",
+            "target": "viewer.story",
+
+            "method":
+            {
+                "name": "loadScene",
+                "args": ["scene-1"]
+            }
+        }
+    ],
+
+    "plugins":
+    {
+        "prefix": "plugins/",
+
+        "engines":
+        [
+            {
+                "uid": "org.forgejs.gyroscopebutton",
+                "url": "GyroscopeButton/"
+            }
+        ],
+
+        "instances":
+        [
+            {
+                "uid": "gyrobutton",
+                "engine": "org.forgejs.gyroscopebutton",
+
+                "options":
+                {
+                    "bottom": 10,
+                    "left": 10
+                }
+            }
+        ]
+    }
+}
