@@ -9,15 +9,15 @@
 	//Send mail function
 	function send_mail($to,$subject,$message,$headers){
 		if(@mail($to,$subject,$message,$headers)){
-			echo json_encode(array('info' => 'success', 'msg' => "Your message has been sent. Thank you!"));
+			echo json_encode(array('info' => 'success', 'msg' => "Ihre Nachricht hat mich erreicht. Ich werde mich baldmöglichst melden. Bis dann!"));
 		} else {
-			echo json_encode(array('info' => 'error', 'msg' => "Error, your message hasn't been sent"));
+			echo json_encode(array('info' => 'error', 'msg' => "Die Nachricht konnte nicht gesendet werden. Bitte schreiben Sie mir direkt an kontakt@michaelkueng.ch oder rufen Sie mich einfach an. Danke!"));
 		}
 	}
 
 	//Check if $_POST vars are set
 	if(!isset($_POST['name']) || !isset($_POST['mail']) || !isset($_POST['comment'])){
-		echo json_encode(array('info' => 'error', 'msg' => 'Please fill out all fields'));
+		echo json_encode(array('info' => 'error', 'msg' => 'Bitte füllen Sie alle Felder aus.'));
 	}
 
 	//Sanitize input data, remove all illegal characters	
@@ -29,15 +29,15 @@
 
 	//Validation
 	if($name == '') {
-		echo json_encode(array('info' => 'error', 'msg' => "Please enter your name."));
+		echo json_encode(array('info' => 'error', 'msg' => "Bitte geben Sie Ihren Namen an."));
 		exit();
 	}
 	if(!filter_var($mail, FILTER_VALIDATE_EMAIL)){
-		echo json_encode(array('info' => 'error', 'msg' => "Please enter valid e-mail."));
+		echo json_encode(array('info' => 'error', 'msg' => "Bitte geben Sie eine gültige Mail-Adresse ein."));
 		exit();
 	}
 	if($comment == ''){
-		echo json_encode(array('info' => 'error', 'msg' => "Please enter your message."));
+		echo json_encode(array('info' => 'error', 'msg' => "Huch, das ging wohl etwas zu schnell. Bitte geben Sie Ihre Nachricht ein."));
 		exit();
 	}
 
