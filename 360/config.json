@@ -139,7 +139,21 @@
                                 "theta": 144,
                                 "phi": -12
                             }
-                        }
+                        },
+                        "events":
+                        [
+                            {
+                                "uid": "action-loadscene-1",
+                                "target": "viewer.story",
+                    
+                                "method":
+                                {
+                                    "name": "loadScene",
+                                    "args": ["scene-1"]
+                                }
+                            }
+                        ]
+                    
                     }
                 ]         
             }
