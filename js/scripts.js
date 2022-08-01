@@ -1,13 +1,13 @@
 (function($){
 
-  "use strict"; 
+  "use strict";
 
   $(window).on('load', function() {
 
     // Preloader
     $('.loader').fadeOut();
     $('.loader-mask').delay(350).fadeOut('slow');
-   
+
     initCollagePlus();
     thumbs_height_init();
     initFlickity();
@@ -26,9 +26,9 @@
     initCollagePlus();
     thumbs_height_init();
     imgFull();
-    
-    var windowWidth = $(window).width();
-    var $dropdownToggle = $('.dropdown-toggle');
+
+    const windowWidth = $(window).width();
+    const $dropdownToggle = $('.dropdown-toggle');
     if (windowWidth <= 974) {
       $dropdownToggle.attr('data-toggle', 'dropdown');
       $('.navigation').removeClass('sticky');
@@ -44,13 +44,14 @@
 
   /* Sidenav
   -------------------------------------------------------*/
-  var $navOpened = $(".nav-type-1, #nav-icon");
+  const $navOpened = $(".nav-type-1, #nav-icon");
 
   $("#nav-trigger").on('click', function() {
     $navOpened.toggleClass('opened');
   });
 
-  $('.main-wrapper').on('click', function() {
+  const mainWrapper = $('.main-wrapper');
+  mainWrapper.on('click', function() {
     $navOpened.removeClass('opened');
   });
 
@@ -119,23 +120,14 @@
 
   function initFlickity() {
 
-    if ($('.flickity-slider-wrap').data('autoplay')) {
-      var dataAutoPlay = true;
-    } else {
-      var dataAutoPlay = false;
-    }
+    const flickitySliderWrap = $('.flickity-slider-wrap');
+    let dataAutoPlay;
+    let dataArrows;
+    let dataSlideDots;
 
-    if ($('.flickity-slider-wrap').data('arrows')) {
-      var dataArrows = true;
-    } else {
-      var dataArrows = false;
-    }
-
-    if ($('.flickity-slider-wrap').data('slidedots')) {
-      var dataSlideDots = true;
-    } else {
-      var dataSlideDots = false;
-    }
+    dataAutoPlay = !!flickitySliderWrap.data('autoplay');
+    dataArrows = !!flickitySliderWrap.data('arrows');
+    dataSlideDots = !!flickitySliderWrap.data('slidedots');
 
 
     // Photography slider
@@ -157,7 +149,7 @@
 
 
     // Thumbnails Slider
-    var a = $('#gallery-main');
+    const a = $('#gallery-main');
 
     $(a).flickity({
       cellAlign: 'center',
@@ -175,7 +167,7 @@
       arrowShape: 'M 10,50 L 60,100 L 65,95 L 20,50  L 65,5 L 60,0 Z'
     });
 
-    $(a).flickity('resize');  
+    $(a).flickity('resize');
 
 
     // thumbs
@@ -226,13 +218,13 @@
       arrowShape: 'M 10,50 L 60,100 L 65,100 L 15,50  L 65,0 L 60,0 Z'
     });
 
-    var $gallery = $('.mfp-hover');
+    const $gallery = $('.mfp-hover');
 
-    $gallery.on( 'dragStart.flickity', function( event, pointer ) {
+    $gallery.on( 'dragStart.flickity', function() {
       $(this).addClass('is-dragging');
     })
 
-    $gallery.on( 'dragEnd.flickity', function( event, pointer ) {
+    $gallery.on( 'dragEnd.flickity', function() {
       $(this).removeClass('is-dragging');
     })
 
@@ -240,13 +232,13 @@
       delegate: '.lightbox-img, .lightbox-video',
       callbacks: {
         elementParse: function(item) {
-        if(item.el.context.className == 'lightbox-video') {
+        if(item.el.context.className === 'lightbox-video') {
             item.type = 'iframe';
           } else {
             item.type = 'image';
           }
         }
-      },    
+      },
       type: 'image',
       closeBtnInside:false,
       gallery:{
@@ -259,10 +251,8 @@
   /* Post Img Fullwidth
   -------------------------------------------------------*/
   function imgFull() {
-
-    var mainWrapper = $('.main-wrapper');
-    var imgFull = mainWrapper.width();
-    var imgOffset = mainWrapper.width() - $('.entry').width();
+    const imgFull = mainWrapper.width();
+    const imgOffset = mainWrapper.width() - $('.entry').width();
 
     $('.post-fullwidth-img').css(
       "margin-left", "-" + imgOffset / 2 + "px"
@@ -282,7 +272,7 @@
   $('.lightbox-img, .lightbox-video').magnificPopup({
     callbacks: {
       elementParse: function(item) {
-      if(item.el.context.className == 'lightbox-video') {
+      if(item.el.context.className === 'lightbox-video') {
           item.type = 'iframe';
         } else {
           item.type = 'image';
@@ -311,17 +301,17 @@
   /* Background Image Hover
   -------------------------------------------------------*/
 
-  var $imgHolder = $('#hover-bg-img .img-holder');
-  var $headerList = $('.headers-list');
+  const $imgHolder = $('#hover-bg-img .img-holder');
+  const $headerList = $('.headers-list');
 
   $imgHolder.fadeOut();
-  $imgHolder + $(".active").fadeIn();
+  ($imgHolder + $(".active")).fadeIn();
 
   $headerList.find("a").on('mouseover', function() {
-    var e = $(this).parents("h2").index();
-    $headerList.find("h2").removeClass("hover"),
-    $(this).parents("h2").addClass("hover"),
-    $(".img-holder").stop().fadeOut().eq(e).stop().fadeIn()
+    const e = $(this).parents("h2").index();
+    $headerList.find("h2").removeClass("hover");
+    $(this).parents("h2").addClass("hover");
+    $(".img-holder").stop().fadeOut().eq(e).stop().fadeIn();
   }).on('mouseout', function() {});
 
 
@@ -344,7 +334,7 @@
     $('.btn-play').toggleClass('hidden');
     $('.btn-pause').toggleClass('show');
 
-    var bgVideo = $(".bg-video video");
+    const bgVideo = $(".bg-video video");
 
     if ($(bgVideo).get(0).paused) {
       $(bgVideo).get(0).play();
@@ -387,8 +377,8 @@
   /* Portfolio Isotope
   -------------------------------------------------------*/
 
-  var $portfolio = $('#isotope-grid');
-  $portfolio.imagesLoaded( function() {     
+  const $portfolio = $('#isotope-grid');
+  $portfolio.imagesLoaded( function() {
     $portfolio.isotope({
       isOriginLeft: true,
       stagger: 30
@@ -401,7 +391,7 @@
   -------------------------------------------------------*/
   function initMasonry(){
 
-    var $masonry = $('#masonry-grid');
+    const $masonry = $('#masonry-grid');
     $masonry.imagesLoaded( function() {
       $masonry.isotope({
         itemSelector: '.work-item',
@@ -417,10 +407,10 @@
   }
 
   // Isotope filter
-  var $portfolioFilter = $('#isotope-grid, #masonry-grid');
+  const $portfolioFilter = $('#isotope-grid, #masonry-grid');
   $('.portfolio-filter').on( 'click', 'a', function(e) {
     e.preventDefault();
-    var filterValue = $(this).attr('data-filter');
+    const filterValue = $(this).attr('data-filter');
     $portfolioFilter.isotope({ filter: filterValue });
     $('.portfolio-filter a').removeClass('active');
     $(this).closest('a').addClass('active');
@@ -429,14 +419,14 @@
   /* Contact Form
   -------------------------------------------------------*/
 
-  var submitContact = $('#submit-message'),
+  const submitContact = $('#submit-message'),
   message = $('#msg');
 
   submitContact.on('click', function(e){
     e.preventDefault();
 
-    var $this = $(this);
-    
+    const $this = $(this);
+
     $.ajax({
       type: "POST",
       url: 'contact.php',
@@ -447,9 +437,11 @@
 
         if(data.info !== 'error'){
           $this.parents('form').find('input[type=text],input[type=email],textarea,select').filter(':visible').val('');
-          message.hide().removeClass('success').removeClass('error').addClass('success').html(data.msg).fadeIn('slow').delay(5000).fadeOut('slow');
+          message.hide().removeClass('success').removeClass('error').addClass('success').html(data.msg)
+            .fadeIn('slow').delay(5000).fadeOut('slow');
         } else {
-          message.hide().removeClass('success').removeClass('error').addClass('error').html(data.msg).fadeIn('slow').delay(5000).fadeOut('slow');
+          message.hide().removeClass('success').removeClass('error').addClass('error').html(data.msg)
+            .fadeIn('slow').delay(5000).fadeOut('slow');
         }
       }
     });
