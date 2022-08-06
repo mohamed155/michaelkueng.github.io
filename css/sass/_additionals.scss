@@ -1,3 +1,13 @@
+@for $i from 1 through 20 {
+  .padding-#{$i}-px-top {
+    padding-top: #{$i}px !important;
+  }
+
+  .padding-#{$i}-px-bottom {
+    padding-bottom: #{$i}px !important;
+  }
+}
+
 #background-video {
   width: 100vw;
   height: 70vh;
